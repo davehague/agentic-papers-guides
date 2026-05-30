@@ -10,6 +10,7 @@ Generated with the `papers-to-content` skill. All content is summaries of public
 
 | Digest | Papers | Read | PDF |
 |--------|--------|------|-----|
+| 30 May 2026 | M-DARE · LiteCoder-Terminal · WorldMemArena · PhoneWorld · PANDO | [HTML](https://davehague.github.io/agentic-papers-guides/2026-05-30/) | [PDF](2026-05-30/guide.pdf) |
 | 29 May 2026 | SkillGrad · AXPO · AsyncTool · AgentDoG 1.5 · Cloud-meets-Device | [HTML](https://davehague.github.io/agentic-papers-guides/2026-05-29/) | [PDF](2026-05-29/guide.pdf) |
 | 28 May 2026 | LiveBrowseComp · LearnWeak · Gamma-World · AgingBench · MemTrace | [HTML](https://davehague.github.io/agentic-papers-guides/2026-05-28/) | [PDF](2026-05-28/guide.pdf) |
 | 27 May 2026 | MUSE-Autoskill · MobileGym · Agentic CLEAR · SAM · Beyond Final Answers | [HTML](https://davehague.github.io/agentic-papers-guides/2026-05-27/) | [PDF](2026-05-27/guide.pdf) |
