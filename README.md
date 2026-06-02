@@ -10,6 +10,7 @@ Generated with the `papers-to-content` skill. All content is summaries of public
 
 | Digest | Papers | Read | PDF |
 |--------|--------|------|-----|
+| 2 June 2026 | Harness-1 · Harness Updating Is Not Harness Benefit · Crafter · SkillAdaptor · A Matter of TASTE | [HTML](https://davehague.github.io/agentic-papers-guides/2026-06-02/) | [PDF](2026-06-02/guide.pdf) |
 | 1 June 2026 | Model→System Scaling · Prompt Injection→Persistent Control · COLLEAGUE.SKILL · GrepSeek · LongTraceRL | [HTML](https://davehague.github.io/agentic-papers-guides/2026-06-01/) | [PDF](2026-06-01/guide.pdf) |
 | 30 May 2026 | M-DARE · LiteCoder-Terminal · WorldMemArena · PhoneWorld · PANDO | [HTML](https://davehague.github.io/agentic-papers-guides/2026-05-30/) | [PDF](2026-05-30/guide.pdf) |
 | 29 May 2026 | SkillGrad · AXPO · AsyncTool · AgentDoG 1.5 · Cloud-meets-Device | [HTML](https://davehague.github.io/agentic-papers-guides/2026-05-29/) | [PDF](2026-05-29/guide.pdf) |

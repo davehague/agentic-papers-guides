@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="🤖 Today’s Agentic Engineering Papers · digest of 2 June 2026" />
+  <meta name="dcterms.date" content="2026-06-02" />
+  <title>The Harness Moves to the Center</title>
+  <style>
+
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+.display.math{display: block; text-align: center; margin: 0.5rem auto;}
+</style>
+  <style type="text/css">html { font-size: 17px; }
+body {
+max-width: 42rem;
+margin: 2.5rem auto;
+padding: 0 1.5rem;
+font-family: Charter, Georgia, "Iowan Old Style", serif;
+line-height: 1.65;
+color: #1c1c1c;
+background: #fbfaf7;
+}
+h1, h2, h3 {
+font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+line-height: 1.25;
+color: #0d0d0d;
+}
+h1 {
+font-size: 1.9rem;
+margin: 3.5rem 0 1.2rem;
+padding-top: 2.5rem;
+border-top: 1px solid #d8d3c4;
+}
+h1:first-of-type { border-top: none; padding-top: 0; margin-top: 0; }
+h2 { font-size: 1.3rem; margin: 2.2rem 0 0.8rem; }
+h3 { font-size: 1.08rem; margin: 1.6rem 0 0.5rem; }
+p { margin: 0.9rem 0; }
+strong { color: #0a0a0a; }
+code {
+font-family: "SF Mono", Menlo, Consolas, monospace;
+font-size: 0.9em;
+background: #efece4;
+padding: 0.1em 0.35em;
+border-radius: 3px;
+}
+pre {
+background: #efece4;
+padding: 0.9rem 1.1rem;
+border-radius: 6px;
+overflow-x: auto;
+font-size: 0.88rem;
+line-height: 1.5;
+}
+pre code { background: none; padding: 0; }
+blockquote {
+border-left: 3px solid #b8a878;
+margin: 1.2rem 0;
+padding: 0.2rem 0 0.2rem 1rem;
+color: #444;
+font-style: italic;
+}
+ul, ol { padding-left: 1.4rem; }
+li { margin: 0.3rem 0; }
+hr {
+border: none;
+border-top: 1px dashed #c8c2b0;
+margin: 2.5rem 0;
+}
+</style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">The Harness Moves to the Center</h1>
+<p class="subtitle">Five agentic-engineering papers on the scaffolding
+around the model — a reader’s guide</p>
+<p class="author">🤖 Today’s Agentic Engineering Papers · digest of 2
+June 2026</p>
+<p class="date">June 2, 2026</p>
+</header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#chapter-0-the-harness-moves-to-the-center" id="toc-chapter-0-the-harness-moves-to-the-center">Chapter 0: The
+Harness Moves to the Center</a>
+<ul>
+<li><a href="#get-the-state-out-of-the-transcript" id="toc-get-the-state-out-of-the-transcript">Get the state out of the
+transcript</a></li>
+<li><a href="#trust-nothing-you-havent-gated" id="toc-trust-nothing-you-havent-gated">Trust nothing you haven’t
+gated</a></li>
+<li><a href="#capability-is-uneven-so-spend-unevenly" id="toc-capability-is-uneven-so-spend-unevenly">Capability is uneven, so
+spend unevenly</a></li>
+<li><a href="#and-keep-the-ruler-honest" id="toc-and-keep-the-ruler-honest">And keep the ruler honest</a></li>
+</ul></li>
+<li><a href="#chapter-1-harness-1" id="toc-chapter-1-harness-1">Chapter
+1: Harness-1</a>
+<ul>
+<li><a href="#move-the-bookkeeping-out-of-the-model" id="toc-move-the-bookkeeping-out-of-the-model">Move the bookkeeping out
+of the model</a></li>
+<li><a href="#why-a-rich-interface-needs-careful-training" id="toc-why-a-rich-interface-needs-careful-training">Why a rich
+interface needs careful training</a></li>
+<li><a href="#the-numbers-and-the-part-that-actually-matters" id="toc-the-numbers-and-the-part-that-actually-matters">The numbers, and
+the part that actually matters</a></li>
+<li><a href="#what-an-engineer-could-borrow" id="toc-what-an-engineer-could-borrow">What an engineer could
+borrow</a></li>
+</ul></li>
+<li><a href="#chapter-2-harness-updating-is-not-harness-benefit" id="toc-chapter-2-harness-updating-is-not-harness-benefit">Chapter 2:
+Harness Updating Is Not Harness Benefit</a>
+<ul>
+<li><a href="#two-jobs-that-look-like-one" id="toc-two-jobs-that-look-like-one">Two jobs that look like
+one</a></li>
+<li><a href="#writing-good-updates-is-cheap" id="toc-writing-good-updates-is-cheap">Writing good updates is
+cheap</a></li>
+<li><a href="#benefiting-from-updates-is-where-models-diverge-strangely" id="toc-benefiting-from-updates-is-where-models-diverge-strangely">Benefiting
+from updates is where models diverge — strangely</a></li>
+<li><a href="#what-an-engineer-building-these-agents-should-do-with-this" id="toc-what-an-engineer-building-these-agents-should-do-with-this">What
+an engineer building these agents should do with this</a></li>
+</ul></li>
+<li><a href="#chapter-3-crafter" id="toc-chapter-3-crafter">Chapter 3:
+Crafter</a>
+<ul>
+<li><a href="#the-harness-not-the-model" id="toc-the-harness-not-the-model">The harness, not the model</a></li>
+<li><a href="#three-moves-worth-stealing" id="toc-three-moves-worth-stealing">Three moves worth stealing</a></li>
+<li><a href="#why-the-output-stays-editable" id="toc-why-the-output-stays-editable">Why the output stays
+editable</a></li>
+<li><a href="#what-an-engineer-could-try" id="toc-what-an-engineer-could-try">What an engineer could try</a></li>
+</ul></li>
+<li><a href="#chapter-4-skilladaptor" id="toc-chapter-4-skilladaptor">Chapter 4: SkillAdaptor</a>
+<ul>
+<li><a href="#fix-the-step-not-the-trajectory" id="toc-fix-the-step-not-the-trajectory">Fix the step, not the
+trajectory</a></li>
+<li><a href="#what-the-gate-actually-buys-you" id="toc-what-the-gate-actually-buys-you">What the gate actually buys
+you</a></li>
+<li><a href="#what-an-engineer-could-borrow-1" id="toc-what-an-engineer-could-borrow-1">What an engineer could
+borrow</a></li>
+</ul></li>
+<li><a href="#chapter-5-a-matter-of-taste" id="toc-chapter-5-a-matter-of-taste">Chapter 5: A Matter of TASTE</a>
+<ul>
+<li><a href="#the-bias-hiding-in-how-we-write-agent-tasks" id="toc-the-bias-hiding-in-how-we-write-agent-tasks">The bias hiding in
+how we write agent tasks</a></li>
+<li><a href="#reverse-the-process-start-from-the-tools" id="toc-reverse-the-process-start-from-the-tools">Reverse the process:
+start from the tools</a></li>
+<li><a href="#what-the-harder-benchmark-exposed" id="toc-what-the-harder-benchmark-exposed">What the harder benchmark
+exposed</a></li>
+<li><a href="#reading-the-result" id="toc-reading-the-result">Reading
+the result</a></li>
+</ul></li>
+</ul>
+</nav>
+<h1 id="chapter-0-the-harness-moves-to-the-center">Chapter 0: The
+Harness Moves to the Center</h1>
+<p>For a decade the reflex in this field was simple: if the agent isn’t
+good enough, get a better model. The five papers in this digest, read
+together, describe a quieter shift in where the leverage now sits. Four
+of them have the word <em>harness</em> in the title, and that’s not a
+coincidence of the week’s arXiv listings — it’s the through-line. The
+harness, the engineered environment wrapped around a frozen model (its
+prompts, tools, memory, state, and the loop that drives them), has
+become a first-class surface that engineers design, train, and measure
+on its own terms. In several of these results it carries more of the
+performance than the model does.</p>
+<p>The cleanest statements of that claim are almost startling as
+numbers. In <strong>Crafter</strong>, swapping the underlying image
+generator from one frontier model to a stronger one moves the final
+score by a fraction of a point, while the multi-agent scaffolding around
+it adds sixteen to twenty-two. In <strong>Harness-1</strong>, a
+20-billion-parameter search agent holds its own against frontier
+retrievers many times its size, and its biggest gains land on the
+<em>held-out</em> benchmarks it never trained on — the tell that it
+learned operations over a general search interface rather than
+memorizing domains. <strong>Harness Updating</strong> drives the point
+home from the budget side: the model that writes good lessons and the
+model that lives by them are different jobs, and only one needs to be
+expensive. The conviction these papers independently arrive at is that
+scale is no longer the only dial, and often not the highest-leverage
+one.</p>
+<h2 id="get-the-state-out-of-the-transcript">Get the state out of the
+transcript</h2>
+<p>If there’s one mechanical idea to carry into all five chapters, it’s
+that an append-only conversation is a bad place to keep an agent’s
+working state. Each paper, in its own domain, pulls structure out of the
+raw context and into something the agent operates on deliberately.
+Harness-1 replaces the growing transcript with a rendered working memory
+— a candidate pool, a curated set with eviction, an evidence graph —
+that the policy <em>edits</em> rather than re-derives every turn.
+Crafter threads a shared, evolving specification between its agents and
+insists that revisions arrive as <strong>typed edits</strong>, not
+free-text addenda that quietly accumulate contradictions. SkillAdaptor
+maintains an external skill library that it grows from experience. In
+every case the win comes from giving the model a clean, structured
+surface instead of asking it to reconstruct order from a flat scroll of
+history. When you read these chapters, watch how much of each system’s
+intelligence lives in the <em>shape of the state</em> rather than in the
+prompt.</p>
+<h2 id="trust-nothing-you-havent-gated">Trust nothing you haven’t
+gated</h2>
+<p>The second shared thread is a discipline: these systems don’t accept
+their own updates on faith. SkillAdaptor’s whole contribution is
+precision plus a gate — localize a failure to a single step, edit only
+the skill responsible, then <strong>replay</strong> the candidate
+library against the current one and reject anything that doesn’t
+measurably help. Its ablations show the gate isn’t decoration; remove it
+and the system gets jittery, variance balloons, quality decays over long
+horizons. Crafter independently lands on the same instinct — a
+best-so-far checkpoint with revert-on-regression, because iterative LLM
+editing is empirically non-monotonic — and pairs its language-model
+critic with <em>programmatic checkers</em> for the things code verifies
+better than judgment: text overflow, arrow endpoints, missing parts.
+Harness-1 bakes a verify action into the loop. The recurring lesson:
+self-improving and self-correcting agents drift into self-harm without
+an acceptance check, and wherever a deterministic checker can validate a
+slice of the output, it should.</p>
+<h2 id="capability-is-uneven-so-spend-unevenly">Capability is uneven, so
+spend unevenly</h2>
+<p>A subtler thread runs between <strong>Harness Updating</strong> and
+<strong>Harness-1</strong>: model capability doesn’t translate uniformly
+into agent performance, which means budget shouldn’t be spread uniformly
+either. Harness Updating finds that writing useful harness updates is
+cheap and flat across model tiers — a 9B model matches Opus — while
+<em>benefiting</em> from updates is non-monotonic, peaking in the
+mid-tier. The practical reading is to put your money on the agent that
+solves the task, run a cheap evolver, and treat “can this model reliably
+invoke and adhere to its harness” as a skill to verify rather than
+assume. Harness-1 is the existence proof from the other direction: a
+small model, given a well-designed interface and the right training
+tricks, beats far larger ones. Bigger is not the lever; <em>fit between
+model and harness</em> is.</p>
+<h2 id="and-keep-the-ruler-honest">And keep the ruler honest</h2>
+<p>None of this matters if you can’t measure it, which is why <strong>A
+Matter of TASTE</strong> belongs in the bundle even though it builds no
+agent. Its uncomfortable finding — that a high score on a maturing
+benchmark increasingly signals saturation, not competence — is the
+meta-condition for everything else here. SkillAdaptor’s honest, modest
+one-point gains are only legible on a benchmark that hasn’t run out of
+room. TASTE offers a cheap, repeatable way to keep manufacturing harder,
+broader tasks as fast as agents climb, by building tasks outward from
+diverse tool sequences instead of inward from a human’s pet scenarios.
+Read it as the floor the other four stand on: the ratchet that keeps
+their improvements visible.</p>
+<p>Carry these four threads into the chapters — state pulled out of the
+transcript, updates that must pass a gate, capability spent where it
+actually pays, and a benchmark sharp enough to register the difference.
+The model still matters. But this week’s papers agree, from five
+different directions, that the engineering has moved into the harness
+around it.</p>
+<hr />
+<h1 id="chapter-1-harness-1">Chapter 1: Harness-1</h1>
+<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2606.02373">Harness-1: Reinforcement
+Learning for Search Agents with State-Externalizing Harnesses</a> ·
+arXiv 2606.02373 · <strong>Code:</strong> <a href="https://github.com/pat-jj/harness-1">github.com/pat-jj/harness-1</a></p>
+<p>Most search agents are trained as a policy over a growing transcript.
+The model issues a query, reads what comes back, decides what’s missing,
+and searches again — and the whole time it’s also supposed to remember
+which documents it has seen, which candidates are worth keeping, which
+constraints are still open, and which claims it has actually checked.
+That’s two jobs crammed into one network: deciding <em>what to
+search</em> and keeping the books on <em>everything it has searched so
+far</em>. Harness-1’s core argument is that the second job doesn’t
+belong in the model at all.</p>
+<h2 id="move-the-bookkeeping-out-of-the-model">Move the bookkeeping out
+of the model</h2>
+<p>The team built a 20-billion-parameter retrieval agent (on top of
+gpt-oss-20b) that runs inside what they call a <strong>stateful
+harness</strong> — an environment that maintains the agent’s working
+memory for it. Instead of re-deriving the state of the search from a
+raw, append-only transcript every turn, the policy sees a clean,
+rendered <strong>working memory</strong>: a candidate pool, an
+importance-tagged curated set, a compact evidence graph, verification
+records, search history, and a context-budget marker. The model’s
+actions don’t just extend a transcript — they <em>edit this state</em>.
+A <code>curate</code> action adds, removes, and importance-tags
+documents. A <code>verify</code> action checks a claim the model writes
+against documents it already has. A <code>review docs</code> action
+re-renders evidence it has seen without spending another corpus
+call.</p>
+<p>The division of labor is the whole idea. The policy keeps the
+semantic decisions: what to search, which documents to promote or
+discard, what to verify, when to stop. The harness handles the
+recoverable, mechanical stuff: deduplicating results, compressing search
+hits down to the four most relevant sentences, capping the curated set
+at 30 and evicting the lowest-importance documents when it overflows,
+and building an evidence graph by regex-scanning each chunk for proper
+nouns, years, and dates so the model can ask “what have I seen about
+Brussels?” as a lookup instead of a full-transcript reread. They call
+this principle <strong>stateful cognitive offloading</strong>: give
+reinforcement learning a stable interface to improve search behavior
+over, rather than forcing it to rediscover bookkeeping from scratch on
+every rollout.</p>
+<h2 id="why-a-rich-interface-needs-careful-training">Why a rich
+interface needs careful training</h2>
+<p>A fancier harness doesn’t automatically make a trainable environment,
+and the paper is candid about the traps. If every rollout starts from an
+empty curated set, hard queries hand back near-identical zero rewards
+and RL learns nothing. If the derived state is too verbose, it crowds
+out the actual evidence. And if the reward only prizes discovery, the
+policy learns to spam searches and skip curation entirely. Harness-1’s
+fixes are worth stealing on their own: <strong>warm-started
+curation</strong> auto-seeds the curated set with the top eight reranked
+results from the first successful search, so early trajectories differ
+in how they <em>refine</em> rather than whether they found anything;
+compact derived-state rendering keeps the interface readable; and a
+tool-diversity reward keeps the agent from collapsing into search-only
+mode.</p>
+<p>That last one is the most instructive. The authors ran two identical
+RL setups differing only in whether the diversity bonus was active.
+Without it, the agent quickly learned to fire off parallel searches,
+drove trajectory recall up, and bypassed curation and verification —
+tool diversity fell from about six tools to three and a half, and
+curated recall plateaued around 0.53. With the bonus, the agent kept
+combining search with curation and verification, and final recall
+climbed to roughly 0.60. The harness exposing useful tools wasn’t
+enough; the reward had to make those tools worth using.</p>
+<h2 id="the-numbers-and-the-part-that-actually-matters">The numbers, and
+the part that actually matters</h2>
+<p>Across eight benchmarks spanning web, finance, patents, and multi-hop
+QA, Harness-1 hits <strong>0.730 average curated recall</strong> —
+beating the next-best open search subagent by 11.4 points and edging out
+much larger frontier retrievers including GPT-5.4, Sonnet-4.6,
+Kimi-K2.5, and a 120B model, with only Opus-4.6 ahead on average. A 20B
+model holding its own against frontier searchers is the headline, but
+the diagnostic result is transfer. The SFT data covered four benchmark
+families; the four <em>held-out</em> benchmarks never touched training.
+Standard intuition says gains should concentrate near the training data.
+The opposite happened: Harness-1 gained +7.9 points on average on the
+source families and <strong>+17.0 points on the held-out ones</strong> —
+a 2.2x larger lift on the tasks furthest from anything it trained
+on.</p>
+<p>That’s the tell that the harness is doing real work. The policy isn’t
+memorizing domain patterns in its weights; it’s learning <em>operations
+over a domain-general search state</em> — refine the seeded set, read
+bridge entities off the evidence graph, re-inspect uncertain candidates,
+verify before promoting, submit a compact set. Those operations travel.
+An ablation study reinforces it: strip out the harness mechanisms one at
+a time and recall degrades as the trained policy reverts to a wide,
+shallow, search-dominated mode; disable them all and recall drops 12.2%,
+the largest hit of any single change. The harness, in other words, is
+where per-turn search bandwidth gets converted into a discriminative
+final set.</p>
+<h2 id="what-an-engineer-could-borrow">What an engineer could
+borrow</h2>
+<p>The practical lesson cuts against the reflex to make agents smarter
+by making them bigger or by piling more reasoning into the context
+window. If you’re building a search or research agent, the
+highest-leverage move may be to pull state management <em>out</em> of
+the model and into the environment. Concretely, you could externalize
+working memory into structured tools rather than letting it accumulate
+in the scratchpad: a candidate pool you dedup and compress before it
+ever reaches the prompt, a curated set with explicit importance tags and
+an automatic eviction policy, a verification cache that checks claims
+against documents you already hold, and a lightweight entity graph that
+turns “what have I seen about X” into a lookup. You don’t need RL to
+benefit from most of this — even a prompted agent gains a cleaner
+decision surface and a smaller, less distractible context. And if you do
+train, the warm-start and diversity-reward tricks are the difference
+between a harness that <em>could</em> help and one the policy actually
+learns to exploit. Interface design, not just model scale, is a
+first-class lever for search-agent performance.</p>
+<p>That framing — that the harness around the model can drive
+performance as much as the model itself — sets up an uncomfortable
+question the next chapter takes head-on. If a good harness is so
+powerful, which models can actually <em>produce</em> good harness
+updates, and which can actually <em>benefit</em> from them? The next
+paper, “Harness Updating Is Not Harness Benefit,” pries those two
+abilities apart in a measurement study of self-evolving agents, and
+finds they don’t track together at all: the ability to generate useful
+harness updates stays roughly flat across model tiers, while the ability
+to benefit from them peaks in the mid-tier — a result that complicates
+the tidy story of bigger models getting more from better
+scaffolding.</p>
+<hr />
+<h1 id="chapter-2-harness-updating-is-not-harness-benefit">Chapter 2:
+Harness Updating Is Not Harness Benefit</h1>
+<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2605.30621">Harness Updating Is Not Harness
+Benefit: Disentangling Evolution Capabilities in Self-Evolving LLM
+Agents</a> · arXiv 2605.30621 · <strong>Code:</strong> <a href="https://github.com/A-EVO-Lab/a-evolve">github.com/A-EVO-Lab/a-evolve</a></p>
+<p>A 9-billion-parameter open model and Claude Opus 4.6 are asked the
+same thing: watch an agent fumble a task, then write a reusable skill
+that fixes the fumble. You would expect the frontier model to win. It
+doesn’t. On one benchmark the tiny model writes the <em>better</em>
+skill, and when researchers lined up the two skills side by side, they
+were nearly the same recipe — same sequence of steps, differing only in
+verbosity. That single result quietly rearranges how you should think
+about spending money on a self-evolving agent.</p>
+<h2 id="two-jobs-that-look-like-one">Two jobs that look like one</h2>
+<p>Most self-evolving agents share a setup worth naming up front. The
+model weights are frozen. What changes is the <strong>harness</strong>
+around the model: the prompts, skills, memories, and tool descriptions
+that shape how it reads a task, acts, and recovers from mistakes. A
+self-evolving agent runs tasks, watches what went wrong, and writes
+lessons back into that harness so the next run goes better. The thing
+that does the writing is called the <strong>evolver</strong>.</p>
+<p>The usual way to evaluate one of these systems asks a single
+end-to-end question: did the agent get better? Useful, but it blurs two
+very different capabilities into one number. One is
+<strong>harness-updating</strong> — being good at turning execution
+evidence into a genuinely useful, persistent update. The other is
+<strong>harness-benefit</strong> — being good at actually exploiting an
+updated harness while solving the task. The paper’s whole move is to
+pull these apart, pairing seven models as both evolvers and solvers
+across three agentic benchmarks (software engineering, real MCP tool
+use, and skill-based execution) to see which capability tracks raw model
+strength.</p>
+<p>The answer to both halves is counterintuitive, and that’s where the
+value is.</p>
+<h2 id="writing-good-updates-is-cheap">Writing good updates is
+cheap</h2>
+<p>Fix the agent doing the work, swap only the evolver, and the gains
+barely move. Across every benchmark, the gap between the best and worst
+evolver was at most 3.1 percentage points — and no single model won
+everywhere. Qwen3-235B topped the software-engineering benchmark and
+came in dead last on tool use. The smallest model in the study,
+Qwen3.5-9B, posted the <em>highest</em> gain on the skills benchmark.
+Model scale simply didn’t predict who wrote better updates.</p>
+<p>Why would distilling a lesson be so much easier than acting on one?
+Because the evolver has the easy job. It gets to look back at a
+completed trajectory — including the failures — and summarize what
+should have happened. That’s a bounded, hindsight-driven writing task,
+and even a small model can spot “you forgot to filter for the FINISH
+event” and write it down clearly. The skill the 9B model produced wasn’t
+a watered-down version of Opus’s; it was procedurally the same
+artifact.</p>
+<p>The practical reading: scaling up your evolver buys you almost
+nothing. If you’re paying frontier prices to generate harness updates,
+that budget is being wasted on the part of the loop that was never the
+bottleneck.</p>
+<h2 id="benefiting-from-updates-is-where-models-diverge-strangely">Benefiting
+from updates is where models diverge — strangely</h2>
+<p>The other capability behaves nothing like the first. Harness-benefit
+is <strong>non-monotonic</strong> in base capability. Weak models gain
+little. Mid-tier models gain the most. Strong models gain less than
+mid-tier. On the software benchmark the peak sat at Qwen3-235B with a
+19.3-point jump, while stronger Opus gained only 2.6 and weaker
+Qwen3-32B only 4.4. On tool use the peak moved to GPT-OSS-120B at 7.0
+points.</p>
+<p>The strong end is easy to explain — a ceiling effect. Frontier models
+already solve most tasks bare, so there’s little headroom for a skill to
+add. The weak end is the surprise. Those models have the <em>most</em>
+room to improve, yet they capture the least of it. The paper traces this
+to two distinct failure modes, and the distinction matters because they
+call for different fixes.</p>
+<p>The first is <strong>harness activation failure</strong>: the model
+never gets the skill into context at all. Qwen3-32B loaded a relevant
+skill in only 25% of its trajectories, versus roughly 96% for strong
+models. In one case it correctly identified the right skill but smuggled
+the load request inside a larger action blob instead of issuing it as a
+clean call — and the runtime’s format gate rejected it. The lesson was
+sitting right there and never entered the working context.</p>
+<p>The second is <strong>harness adherence failure</strong>: the skill
+loads, and the model still doesn’t follow it. Qwen3-235B is the clean
+illustration — it loaded skills 96% of the time, nearly matching Opus,
+yet followed the loaded guidance only 35% of the time against Opus’s
+76%. In one walkthrough, a model loaded a skill that spelled out a
+five-engine text-to-speech fallback chain, treated it as a one-shot
+script, hit the first failure, and gave up — never trying the
+alternatives the skill explicitly listed. Adherence also <em>decays over
+the trajectory</em>: weak models started around 0.52 adherence right
+after loading and drifted to 0.13 by the final step, while Opus held
+from 0.89 to 0.80. The weakness isn’t misreading the harness at load
+time; it’s losing the thread over a long task.</p>
+<h2 id="what-an-engineer-building-these-agents-should-do-with-this">What
+an engineer building these agents should do with this</h2>
+<p>Three concrete moves fall out of the split.</p>
+<p>First, <strong>put your capability budget on the solver, not the
+evolver.</strong> Post-evolution performance varies far more with which
+model solves the task than with which model wrote the update —
+within-agent spread across seven evolvers topped out at about 5 points,
+dwarfed by a 36-point gap between strong and weak solvers’ base
+capability. If you’re cost-constrained, run a cheap, even tiny, evolver
+and pour the savings into a stronger solving agent. The reverse —
+premium evolver, budget solver — is the trap.</p>
+<p>Second, <strong>treat harness invocation as a skill to train, not a
+behavior to assume.</strong> A model that can’t reliably emit a clean
+skill-load call gets nothing from your beautifully evolved harness.
+Before chasing better update quality, audit your load rate: are relevant
+artifacts actually reaching context? A malformed call that a format gate
+silently rejects looks identical to “the harness didn’t help” in an
+end-to-end score, and you’ll debug the wrong half of the loop.</p>
+<p>Third, <strong>measure adherence as a curve, not a checkbox.</strong>
+Loading isn’t following, and following at turn one isn’t following at
+turn twenty. The paper’s phase-level scoring — adherence right after
+load, at the midpoint, at final validation — is a cheap diagnostic you
+can borrow directly. If your agent drifts off its own loaded guidance
+late in long-horizon tasks, the fix is sustained instruction-following,
+not more skills.</p>
+<p>The broader takeaway is a reframing of the whole self-evolution
+stack: the model that writes the lessons and the model that lives by
+them are doing genuinely different jobs, and only one of them needs to
+be smart. Optimize them separately, or you’ll spend frontier money where
+a 9B model would have done.</p>
+<p>That insight is about a <em>single</em> agent learning to use a
+harness over time. The next chapter turns to coordination across
+<em>many</em> specialized agents at once — Crafter, a multi-agent
+harness that takes heterogeneous inputs like text, raw data, and rough
+sketches and routes them through role-specialized agents to produce
+editable, publication-quality scientific figures. Where this chapter
+asked which model should hold the budget, the next asks how to divide
+the work.</p>
+<hr />
+<h1 id="chapter-3-crafter">Chapter 3: Crafter</h1>
+<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2605.30611">Crafter: A Multi-Agent Harness
+for Editable Scientific Figure Generation from Diverse Inputs</a> ·
+arXiv 2605.30611 · <strong>Code:</strong> <a href="https://github.com/HaozheZhao/Crafter">github.com/HaozheZhao/Crafter</a></p>
+<p>Anyone who has built on top of a raw image model knows the failure
+mode: you ask for a clean architecture diagram, get back something with
+a garbled label and a misaligned arrow, retype the prompt, and get back
+a <em>different</em> set of mistakes. Naive retry doesn’t converge. Pile
+up free-text corrections — “enlarge the title,” then “reduce the white
+space” — and the model silently absorbs the contradictions until
+faithfulness quietly rots. Crafter’s central claim is that this isn’t a
+model problem. It’s an orchestration problem, and the fix is a harness,
+not a bigger backbone.</p>
+<h2 id="the-harness-not-the-model">The harness, not the model</h2>
+<p>The headline result for an engineer: wrapping an off-the-shelf image
+generator in a structured multi-agent loop beat the strongest agentic
+baseline by 16.6 points on one benchmark and 22.2 on a tougher, broader
+one — and it did so while leaving the <em>generator itself</em>
+untouched. Swap the backbone from Nano Banana 2 to Nano Banana Pro and
+the overall score barely moves (0.3 to 2.1 points). The lift comes from
+the scaffolding around the model. That’s the whole thesis stated as a
+number: the harness raises the floor and the consistency of the
+pipeline, not the ceiling of the generator.</p>
+<p>Crafter formalizes the harness as a four-role loop over a shared,
+evolving <strong>specification</strong> — a structured record that holds
+the current plan, the revision history, and prior diagnostics. Each
+round, a <strong>designer</strong> proposes a plan, an
+<strong>executor</strong> renders it, a <strong>verifier</strong>
+inspects the artifact and emits a diagnostic, and a
+<strong>reviser</strong> writes edits back into the spec. Five concrete
+agents fill those four roles: an intent reasoner that reads the input (a
+paper, a sketch, a reference image) and seeds the initial spec, a plan
+generator, the image-generation backend, a critic, and a specification
+refiner — with a convergence judge governing whether each round is
+accepted, refined further, or reverted.</p>
+<p>Three design choices make the loop actually work, and each is
+independently load-bearing — removing any one costs 5 to 9 points in
+ablation.</p>
+<h2 id="three-moves-worth-stealing">Three moves worth stealing</h2>
+<p><strong>Branch at the plan level, not just the refinement
+level.</strong> Image generators have high variance on structured
+layouts: the same prompt yields qualitatively different compositions
+across seeds. So the designer proposes <em>K</em> candidate framings in
+parallel (banner, multi-column grid, numbered-step sequence — from an
+11-key style vocabulary), renders them all, and the judge picks the best
+as the starting point. The insight is that a bad compositional choice
+early — rendering a comparison as a block diagram — poisons every
+refinement round downstream. Branching escapes that <em>before</em> you
+spend rendering budget refining a doomed layout. Killing this move was
+the single most expensive ablation.</p>
+<p><strong>Accumulate typed edits, not free text.</strong> This is the
+move most directly transferable to any iterative-generation agent.
+Instead of appending natural-language corrections to a growing prompt,
+the reviser converts each diagnostic into structured operations from a
+fixed vocabulary — add a layout constraint, ban an artifact category,
+resize a named element — applied <em>in place</em> on the shared spec.
+The next prompt is rebuilt from that coherent record, not from a
+teetering stack of amendments. Replacing typed edits with free-text
+revision cost 8.9 points, the largest single drop, and it validates the
+original diagnosis: free-text contradictions degrade output without any
+one round looking wrong.</p>
+<p><strong>Make the critic directive, not scalar.</strong> A “5/10”
+score gives the reviser nothing to act on. Crafter’s critic instead
+emits per-dimension scores across six axes plus an explicit defect list
+and suggested corrections. The reviser reads the issues and suggestions,
+not the numbers. Pair that with a verify-then-refine loop (capped at
+three rounds) that keeps a best-so-far checkpoint and reverts whenever a
+round regresses — because LLM-driven editing is empirically
+non-monotonic, a detail worth internalizing for anyone running
+self-correction loops.</p>
+<h2 id="why-the-output-stays-editable">Why the output stays
+editable</h2>
+<p>The other half of the contribution is that the result doesn’t have to
+stay a flat raster. <strong>CraftEditor</strong> reuses the exact same
+four-role harness to convert a raster figure into a coordinate-faithful,
+editable <strong>SVG</strong> — the kind of artifact you can open in
+standard vector tooling and actually revise: swap an icon, recolor a
+scheme, complete a partial diagram. It runs three phases. Extraction
+replaces brittle segmentation with an instruction-driven cleaning loop
+(a vision agent authors a keep/delete plan, an image editor executes it,
+a verifier checks the canvas). Processing captions and classifies each
+isolated element. Composition assembles an SVG skeleton and refines it
+through a <strong>hybrid critic</strong> — a vision-language model
+judging global layout fidelity alongside <em>programmatic checkers</em>
+that audit the things VLMs miss: text overflow, arrow-endpoint accuracy,
+element overlap, missing components.</p>
+<p>That hybrid critic is the quietly clever part. The largest editing
+gains landed on exactly the structural axes — text and arrows — where
+deterministic code catches what a language model’s eyeball glosses over.
+CraftEditor scored 8.04 overall against 6.91 for the next-best
+raster-to-vector system. The lesson generalizes past figures: when you
+can verify part of a structured artifact with a real checker, do it, and
+reserve the model’s judgment for what only judgment can assess.</p>
+<h2 id="what-an-engineer-could-try">What an engineer could try</h2>
+<p>The reason this paper matters beyond scientific figures is right
+there in the conclusion: because the harness is executor-agnostic, the
+authors expect the pattern to carry into any structured-output domain.
+If you’re orchestrating role-specialized agents on a task where the
+output is a <em>composition of discrete parts with constraints between
+them</em> — SQL, infrastructure-as-code, UI layouts, slide decks,
+structured documents — the borrowable kit is concrete. Keep an evolving
+structured spec as the shared memory instead of threading raw
+conversation between agents. Let agents write typed deltas to that spec,
+never free-text addenda into each other’s prompts. Branch at the
+planning level to dodge unrecoverable early choices. Make your critic
+hand back specific, per-dimension defects, not a score. Checkpoint and
+revert, because iterative LLM editing backslides. And wherever a
+deterministic checker can verify a slice of the output, wire it in
+alongside the model judge. Notably, all the task-specific behavior here
+lives in agent <em>prompts</em>, not architecture — adding a whole new
+input condition took one branch in the instruction builder and one table
+entry, no pipeline rewrite.</p>
+<p>That portability — a fixed harness, swappable executor, behavior
+carried in prompts — is also what sets up the next question. Crafter’s
+agents share memory but don’t <em>learn</em> from their own runs; each
+task starts fresh. The next chapter turns to SkillAdaptor, a
+training-free framework that lets an agent mine its own past
+trajectories to synthesize reusable skills and keep adapting them — and
+crucially, attributes failure at the step level rather than blaming a
+whole trajectory, so the lessons it carries forward are precise rather
+than blunt.</p>
+<hr />
+<h1 id="chapter-4-skilladaptor">Chapter 4: SkillAdaptor</h1>
+<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2606.01311">SkillAdaptor: Self-Adapting
+Skills for LLM Agents from Trajectories</a> · arXiv 2606.01311 ·
+<strong>Code:</strong> <a href="https://github.com/zjunlp/SkillAdaptor">github.com/zjunlp/SkillAdaptor</a></p>
+<p>A long-horizon agent run fails on step nineteen. Somewhere back at
+step six it parsed a spreadsheet wrong, and everything after that was
+wasted motion built on a bad number. The conventional way to learn from
+that failure is to hand the whole transcript to a model and ask “what
+should we do differently next time?” The model, staring at nineteen
+steps where eighteen looked fine, tends to rewrite half the playbook.
+SkillAdaptor’s argument is that this is exactly the wrong instinct. The
+failure was one step. The fix should be one skill. Everything else
+should be left alone.</p>
+<h2 id="fix-the-step-not-the-trajectory">Fix the step, not the
+trajectory</h2>
+<p>The core move here is precision in blame. Most training-free
+skill-improvement pipelines — the ones that let you upgrade a frozen
+model by editing an external library of reusable “skills” rather than
+retraining weights — learn from trajectory-level or session-level
+outcomes. They treat the completed run as the unit of reflection.
+SkillAdaptor treats the <em>step</em> as the unit, and it does so with
+an explicit credit-assignment pipeline that runs in three named
+stages.</p>
+<p>First, <strong>attribution</strong>. A Localizer reads the failed
+trajectory and predicts the earliest accountable fault step — the first
+place where, had the agent done something different, the outcome would
+have changed. In the paper’s worked example, a CSV-and-Excel
+summarization task fails at the final step, but the Localizer pins the
+real fault back at interaction step six: the agent finalized after
+passing only partial validation checks. A Linker then takes that fault
+step and assigns responsibility <em>weights</em> to the skills that were
+actually in play, producing a ranked suspect list rather than a vague
+gesture at the library. It also decides whether this is a case of a
+skill that misled the agent (route to REVISE) or a capability the
+library never covered (route to GENERATE).</p>
+<p>Second, <strong>modification</strong>. If the verdict is REVISE, the
+highest-weighted skill gets a minimal, additive edit — a new
+precondition, a disambiguation, an anti-loop guard — and replaces the
+old card. If it’s GENERATE, a fresh skill is synthesized from the
+localized context and appended, then deduplicated against the existing
+library so you don’t accumulate near-identical cards.</p>
+<p>Third — and this is the part most worth stealing —
+<strong>qualification</strong>. No edit is trusted on faith. Before a
+candidate update is committed, the framework re-runs tasks under both
+the old library and the proposed new one and compares outcomes. The
+update is accepted only if performance doesn’t drop. If it does, the
+modification is thrown away and the original library is kept untouched.
+This acceptance gate is what keeps continual adaptation from drifting
+into self-inflicted decay over long horizons.</p>
+<h2 id="what-the-gate-actually-buys-you">What the gate actually buys
+you</h2>
+<p>The ablations make the case better than the headline numbers do.
+Strip out the Localizer and Linker and WebShop success falls from 33% to
+28.6% — step-level targeting is doing real work, not decoration. But the
+more telling result is what happens when you remove the qualifier gate.
+Accuracy sags, but the real damage shows up in <em>variance</em>:
+PinchBench spread balloons from ±5.2 to ±8.1, WebShop success spread
+nearly doubles. Without the acceptance check, bad skills slip into
+retrieval and the whole system gets jittery. And when you keep only the
+skills distilled from successful runs — no failure-driven attribution at
+all — the gains essentially vanish back to the bare-model baseline. The
+lesson lands hard: skills mined only from your wins don’t transfer. The
+instructive signal lives in the failures, but only if you can localize
+it.</p>
+<p>Across WebShop, PinchBench, and Claw-Eval, run on Kimi-K2.5, GLM-5,
+and GPT-5.2, SkillAdaptor beats both no-skill baselines and prior
+skill-adaptation methods on every suite. The margins are modest —
+roughly a point to a point-and-a-half on the headline metrics — but
+they’re consistent across three different backbones, which is the harder
+thing to achieve. There’s a quieter efficiency story too: skills
+front-load context, so per-task input tokens rise, but the agent takes
+<em>fewer</em> interaction steps (Claw-Eval drops from 7.3 to 5.8),
+trading repeated environmental flailing for richer in-context reasoning.
+The authors are careful that this isn’t a free lunch on cost — it’s a
+redistribution of where the compute goes.</p>
+<h2 id="what-an-engineer-could-borrow-1">What an engineer could
+borrow</h2>
+<p>You don’t need to adopt this whole framework to get value from it.
+The reusable idea is that you can improve a long-horizon agent
+<em>without retraining anything</em> by maintaining a skill library and
+editing it from failures — and the editing discipline is the part that
+matters. Most teams running agent harnesses already log failed
+trajectories and let them rot. The borrowable pattern: when a run fails,
+don’t ask a model to “summarize lessons learned” over the whole
+transcript. Ask it for the <em>first</em> actionable fault step, link
+that step to the specific instruction or skill card that steered the
+agent wrong, and edit only that card. Then — the non-negotiable part —
+gate the edit behind a replay check that compares the candidate library
+against the current one and rejects anything that doesn’t measurably
+help. That acceptance gate is cheap to bolt onto an existing eval
+harness and it’s the single thing standing between “self-improving
+agent” and “library that slowly poisons itself.”</p>
+<p>It works best where failures expose observable intermediate structure
+— code, data, DevOps tasks where a wrong parse or a bad argument is
+visible in the trace. It’s weaker where failure depends on persistent
+state, external knowledge, or cross-session memory that no single
+step-level edit can repair. Knowing that boundary tells you where to
+point this kind of self-adaptation and where to reach for something
+else.</p>
+<p>Of course, none of this self-improvement means anything if your
+benchmark can’t tell good agents from bad ones in the first place. Once
+leaderboards saturate and easy tasks dominate the score, a method that
+wins by a point becomes indistinguishable from noise — and that’s
+precisely the problem the next chapter takes on. A Matter of TASTE turns
+the lens around to the benchmarks themselves, attacking coverage gaps
+and easy-task bias so the evaluations stay sharp enough to register
+exactly the kind of improvement SkillAdaptor is chasing.</p>
+<hr />
+<h1 id="chapter-5-a-matter-of-taste">Chapter 5: A Matter of TASTE</h1>
+<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2605.28556">A
+Matter of TASTE: Improving Coverage and Difficulty of Agent
+Benchmarks</a> · arXiv 2605.28556</p>
+<p>A leading model scores 0.94 on a respected agent benchmark. You read
+that as “this model has nearly solved customer-support agent tasks.” But
+put the same model on a harder, broader version of the same domain and
+it falls to 0.61. The capability didn’t change. The benchmark just ran
+out of room to measure it.</p>
+<p>That gap is the whole story of this paper, and it has a blunt lesson
+for anyone who builds or trusts agent leaderboards: a high pass rate on
+a maturing benchmark increasingly means the benchmark is saturated, not
+that the agent is good. The authors built a way to manufacture harder,
+more varied tasks automatically, and when they did, the scores of
+“nearly solved” models cratered.</p>
+<h2 id="the-bias-hiding-in-how-we-write-agent-tasks">The bias hiding in
+how we write agent tasks</h2>
+<p>Most tool-using-agent benchmarks are authored the same way. A human
+writes a natural-language scenario (“a customer wants to rebook a
+canceled flight”), then works out the sequence of tool calls that would
+satisfy it. It’s slow, expensive, and error-prone — earlier work found
+dozens of broken tasks in the popular τ-Bench that had to be patched in
+a “Verified” rerun.</p>
+<p>But the deeper problem is what this authoring style <em>samples</em>.
+Because the tool sequence is only ever derived as an afterthought,
+benchmarks end up exercising whatever tool combinations happened to
+occur to the author. The space of tool-use patterns an agent could be
+tested on is vast; hand-authored tasks cover a thin, lopsided slice of
+it. A benchmark can look big while testing the same few procedural
+shapes over and over.</p>
+<p>The authors name three things a good agent benchmark needs.
+<strong>Validity</strong>: every task must be automatically checkable
+and actually solvable. <strong>Difficulty</strong>: tasks should
+separate strong agents from weak ones rather than letting everyone pass.
+And <strong>coverage</strong>: tasks should span structurally different
+patterns of tool use, not pile up near-duplicates. Coverage is the one
+nobody had pinned down — so they defined it concretely as the diversity
+of <em>tool sequences</em>, the ordered list of which tools a correct
+solution calls. That definition is the hinge for everything that
+follows.</p>
+<h2 id="reverse-the-process-start-from-the-tools">Reverse the process:
+start from the tools</h2>
+<p>The core move in <strong>TASTE</strong> — Task Synthesis from Tool
+Sequence Evolution — is to flip task construction around. Instead of
+writing a story and recovering its tool calls, you first sample a
+diverse spread of valid tool sequences, then build full tasks around
+each one. If you can explore the tool-sequence space directly, you can
+deliberately cover it instead of hoping an author wandered into the
+interesting corners.</p>
+<p>It runs in three stages. The first trains what they call an
+<strong>Adaptive Contrastive n-gram model</strong> over tool sequences —
+a deliberately simple machine that predicts the next tool from the
+previous couple of tools. Two twists make it work. It’s
+<em>adaptive</em>: it samples candidate sequences, has an LLM judge
+whether each could plausibly solve a real scenario, and folds that
+verdict back in to sharpen its own distribution. And it’s
+<em>contrastive</em>: it keeps separate tallies for patterns seen in
+plausible versus implausible sequences, so it actively learns to avoid
+nonsense like modifying a reservation after canceling it. That negative
+signal matters — naive uniform sampling produced valid sequences only
+6.7 percent of the time, while the full trained model hit 86.7 percent.
+Roughly a thirteen-fold lift, from a model cheap enough to run for about
+ten dollars a domain.</p>
+<p>The second stage prunes the thousands of candidates down to a
+representative set. It clusters them with a distance metric that
+understands tools — swapping two similar search functions costs little,
+swapping a read for a write costs a lot — then picks the center of each
+cluster. You get sequences that are genuinely structurally distinct
+rather than a pile of trivial variations.</p>
+<p>The third stage turns each chosen sequence into a real task: an LLM
+invents a plausible scenario and the database records to support it, a
+rule-based pass checks the task is structurally sound, and a “verifier
+agent” tries to actually solve it (given shuffled, partly-masked hints
+so it can’t just replay the answer). Only tasks the verifier can
+complete survive — and that gate is tuned for near-perfect precision, so
+anything passing is almost certainly solvable. Then comes the part that
+makes tasks <em>hard</em>: an evolution step that makes the simulated
+user vaguer and less cooperative, and salts the database with decoy
+records — a flight on the right route with no seats left — designed to
+trip up agents that aren’t reading carefully.</p>
+<h2 id="what-the-harder-benchmark-exposed">What the harder benchmark
+exposed</h2>
+<p>Running TASTE on three τ²-Bench domains produced τc-Bench, then they
+evaluated eleven agent/user model pairings on it. Scores dropped across
+the board, by anywhere from 5 to 80 percent. The fall was steepest
+exactly where you’d worry most: the models that looked nearly finished
+on the old benchmark. Gemini-3-Flash went from the 0.82–0.94 range down
+to 0.28–0.61. Crucially, the new tasks were also genuinely
+<em>broader</em>, not just meaner — the diversity of tool combinations
+agents had to execute more than doubled by the authors’ coverage
+measures. And when they hand-checked the handful of tasks every single
+agent failed, the tasks themselves were valid. The agents simply
+couldn’t do them.</p>
+<h2 id="reading-the-result">Reading the result</h2>
+<p>The takeaway for practitioners is uncomfortable in a useful way. When
+a benchmark’s top scores cluster up near the ceiling, your instinct
+should not be “the models are great” but “this benchmark has stopped
+telling me anything.” Saturation and competence look identical from the
+leaderboard. The only way to tell them apart is a harder test.</p>
+<p>If you build or rely on agent evals, there are concrete things to
+borrow here. Audit your benchmark for coverage, not just headcount:
+count how many genuinely distinct tool-call patterns your tasks
+exercise, because a hundred near-duplicate tasks measure one thing a
+hundred times. Treat hard, distractor-laden tasks as the signal — a
+decoy record or an uncooperative user is often where real agents break,
+and where leaderboard-toppers separate from the pack. And consider
+building your tasks from the tool sequences outward rather than from a
+story inward, so coverage is something you design for instead of
+something you hope you stumbled into. You don’t need this exact pipeline
+to act on the idea; even manually, you can ask whether your tasks span
+the procedural space or just the scenarios you happened to imagine.</p>
+<p>The larger point is that benchmarks have a shelf life, and the better
+models get, the shorter it grows. What TASTE really offers is not one
+harder benchmark but a cheap, repeatable way to keep making the next one
+— to ratchet difficulty and coverage upward as fast as the agents climb.
+The difficulty knobs are still in your hand: longer sequences and more
+write-heavy tasks both reliably drove scores down, which means there’s
+headroom to make tasks harder still when today’s batch gets solved. In a
+field where a model can go from impressive to obsolete in a quarter, an
+evaluation you can regenerate on demand may matter more than any single
+score it produces.</p>
+<hr />
+</body>
+</html>
