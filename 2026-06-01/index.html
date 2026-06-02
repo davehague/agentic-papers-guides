@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="From the arXiv daily agentic-engineering digest · 1 June 2026" />
+  <meta name="dcterms.date" content="2026-06-01" />
+  <title>Agentic Engineering: Five Papers</title>
+  <style>
+
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+.display.math{display: block; text-align: center; margin: 0.5rem auto;}
+</style>
+  <style type="text/css">html { font-size: 17px; }
+body {
+max-width: 42rem;
+margin: 2.5rem auto;
+padding: 0 1.5rem;
+font-family: Charter, Georgia, "Iowan Old Style", serif;
+line-height: 1.65;
+color: #1c1c1c;
+background: #fbfaf7;
+}
+h1, h2, h3 {
+font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+line-height: 1.25;
+color: #0d0d0d;
+}
+h1 {
+font-size: 1.9rem;
+margin: 3.5rem 0 1.2rem;
+padding-top: 2.5rem;
+border-top: 1px solid #d8d3c4;
+}
+h1:first-of-type { border-top: none; padding-top: 0; margin-top: 0; }
+h2 { font-size: 1.3rem; margin: 2.2rem 0 0.8rem; }
+h3 { font-size: 1.08rem; margin: 1.6rem 0 0.5rem; }
+p { margin: 0.9rem 0; }
+strong { color: #0a0a0a; }
+code {
+font-family: "SF Mono", Menlo, Consolas, monospace;
+font-size: 0.9em;
+background: #efece4;
+padding: 0.1em 0.35em;
+border-radius: 3px;
+}
+pre {
+background: #efece4;
+padding: 0.9rem 1.1rem;
+border-radius: 6px;
+overflow-x: auto;
+font-size: 0.88rem;
+line-height: 1.5;
+}
+pre code { background: none; padding: 0; }
+blockquote {
+border-left: 3px solid #b8a878;
+margin: 1.2rem 0;
+padding: 0.2rem 0 0.2rem 1rem;
+color: #444;
+font-style: italic;
+}
+ul, ol { padding-left: 1.4rem; }
+li { margin: 0.3rem 0; }
+hr {
+border: none;
+border-top: 1px dashed #c8c2b0;
+margin: 2.5rem 0;
+}
+</style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Agentic Engineering: Five Papers</h1>
+<p class="subtitle">A pragmatic reader’s guide — 1 June 2026</p>
+<p class="author">From the arXiv daily agentic-engineering digest · 1
+June 2026</p>
+<p class="date">1 June 2026</p>
+</header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#chapter-0-the-harness-is-the-product-now" id="toc-chapter-0-the-harness-is-the-product-now">Chapter 0: The Harness
+Is the Product Now</a>
+<ul>
+<li><a href="#capability-and-attack-surface-are-the-same-machinery" id="toc-capability-and-attack-surface-are-the-same-machinery">Capability
+and attack surface are the same machinery</a></li>
+<li><a href="#stored-artifacts-are-hypotheses-not-facts" id="toc-stored-artifacts-are-hypotheses-not-facts">Stored artifacts are
+hypotheses, not facts</a></li>
+<li><a href="#supervise-the-process-not-just-the-endpoint" id="toc-supervise-the-process-not-just-the-endpoint">Supervise the
+process, not just the endpoint</a></li>
+<li><a href="#trajectories-are-the-raw-material" id="toc-trajectories-are-the-raw-material">Trajectories are the raw
+material</a></li>
+<li><a href="#smaller-models-better-systems" id="toc-smaller-models-better-systems">Smaller models, better
+systems</a></li>
+<li><a href="#what-to-carry-into-the-chapters" id="toc-what-to-carry-into-the-chapters">What to carry into the
+chapters</a></li>
+</ul></li>
+<li><a href="#chapter-1-scaling-the-harness-not-the-model" id="toc-chapter-1-scaling-the-harness-not-the-model">Chapter 1: Scaling
+the Harness, Not the Model</a>
+<ul>
+<li><a href="#the-score-you-report-is-a-lie-about-the-model" id="toc-the-score-you-report-is-a-lie-about-the-model">The score you
+report is a lie about the model</a></li>
+<li><a href="#three-places-the-plumbing-leaks" id="toc-three-places-the-plumbing-leaks">Three places the plumbing
+leaks</a></li>
+<li><a href="#same-model-three-different-animals" id="toc-same-model-three-different-animals">Same model, three different
+animals</a></li>
+<li><a href="#where-the-leverage-actually-is" id="toc-where-the-leverage-actually-is">Where the leverage actually
+is</a></li>
+</ul></li>
+<li><a href="#chapter-2-the-backdoor-that-looks-like-a-note" id="toc-chapter-2-the-backdoor-that-looks-like-a-note">Chapter 2: The
+Backdoor That Looks Like a Note</a>
+<ul>
+<li><a href="#what-actually-changed" id="toc-what-actually-changed">What
+actually changed</a></li>
+<li><a href="#why-this-should-worry-anyone-running-agents-in-production" id="toc-why-this-should-worry-anyone-running-agents-in-production">Why
+this should worry anyone running agents in production</a></li>
+<li><a href="#the-defense-and-what-to-borrow-from-it" id="toc-the-defense-and-what-to-borrow-from-it">The defense, and what to
+borrow from it</a></li>
+</ul></li>
+<li><a href="#chapter-3-the-coworker-you-can-read-roll-back-and-delete" id="toc-chapter-3-the-coworker-you-can-read-roll-back-and-delete">Chapter
+3: The Coworker You Can Read, Roll Back, and Delete</a>
+<ul>
+<li><a href="#what-it-actually-builds" id="toc-what-it-actually-builds">What it actually builds</a></li>
+<li><a href="#why-this-is-a-different-bet-than-the-usual-skill-synthesis-paper" id="toc-why-this-is-a-different-bet-than-the-usual-skill-synthesis-paper">Why
+this is a different bet than the usual skill-synthesis paper</a></li>
+<li><a href="#what-to-steal-for-your-own-skill-library" id="toc-what-to-steal-for-your-own-skill-library">What to steal for your
+own skill library</a></li>
+</ul></li>
+<li><a href="#chapter-4-giving-the-agent-a-terminal-instead-of-a-vector-database" id="toc-chapter-4-giving-the-agent-a-terminal-instead-of-a-vector-database">Chapter
+4: Giving the Agent a Terminal Instead of a Vector Database</a>
+<ul>
+<li><a href="#why-you-have-to-train-this-not-just-prompt-it" id="toc-why-you-have-to-train-this-not-just-prompt-it">Why You Have to
+Train This, Not Just Prompt It</a></li>
+<li><a href="#the-tutor-and-planner-trick-for-manufacturing-good-trajectories" id="toc-the-tutor-and-planner-trick-for-manufacturing-good-trajectories">The
+Tutor-and-Planner Trick for Manufacturing Good Trajectories</a></li>
+<li><a href="#why-this-matters-beyond-one-benchmark" id="toc-why-this-matters-beyond-one-benchmark">Why This Matters Beyond
+One Benchmark</a></li>
+<li><a href="#what-you-could-try-on-monday" id="toc-what-you-could-try-on-monday">What You Could Try on
+Monday</a></li>
+</ul></li>
+<li><a href="#chapter-5-hard-distractors-and-the-reasoning-you-cant-see" id="toc-chapter-5-hard-distractors-and-the-reasoning-you-cant-see">Chapter
+5: Hard Distractors and the Reasoning You Can’t See</a>
+<ul>
+<li><a href="#mining-distractors-from-agents-that-actually-searched" id="toc-mining-distractors-from-agents-that-actually-searched">Mining
+distractors from agents that actually searched</a></li>
+<li><a href="#rewarding-the-reasoning-not-just-the-answer" id="toc-rewarding-the-reasoning-not-just-the-answer">Rewarding the
+reasoning, not just the answer</a></li>
+<li><a href="#why-this-travels-beyond-one-paper" id="toc-why-this-travels-beyond-one-paper">Why this travels beyond one
+paper</a></li>
+<li><a href="#what-a-practitioner-can-borrow" id="toc-what-a-practitioner-can-borrow">What a practitioner can
+borrow</a></li>
+</ul></li>
+</ul>
+</nav>
+<h1 id="chapter-0-the-harness-is-the-product-now">Chapter 0: The Harness
+Is the Product Now</h1>
+<p>Read these five papers back to back and a single argument assembles
+itself, even though no two author teams set out to make it. The model is
+no longer the interesting variable. The system wrapped around it — the
+memory it reloads, the skills it loads, the context it builds, the
+trajectories it learns from — is where capability, risk, and the next
+round of gains all now live. Each paper takes a different slice of that
+system and arrives, independently, at a few of the same convictions.
+Those convictions are worth naming up front, because once you see them
+you’ll spot them recurring in every chapter.</p>
+<h2 id="capability-and-attack-surface-are-the-same-machinery">Capability
+and attack surface are the same machinery</h2>
+<p>The opening paper’s thesis is that long-horizon agent performance is
+gated by the harness, not the weights — token budget, tool calls, and
+orchestration explained 95% of the performance variance in one
+production system. The second paper delivers the corollary nobody wants:
+the very memory stores, persistent files, and skill manifests that make
+an agent capable are exactly what an attacker wants to own. A poisoned
+<code>CLAUDE.md</code> and a useful <code>CLAUDE.md</code> are the same
+file. When you read Chapter 1’s case for investing in memory and skill
+infrastructure, keep Chapter 2’s multi-step trojan in your peripheral
+vision. They are describing the same surface from opposite sides — one
+as the source of leverage, the other as the thing you now have to
+defend.</p>
+<h2 id="stored-artifacts-are-hypotheses-not-facts">Stored artifacts are
+hypotheses, not facts</h2>
+<p>The sharpest shared instinct across these papers is a refusal to
+trust anything just because it was written down and ranked highly.
+Chapter 1 argues that retrieved memory is a hypothesis until re-verified
+against the live environment — trust is a runtime decision, not a
+property baked into the stored item. Chapter 2 enforces the same idea
+defensively: untrusted content carries a provenance label across every
+step, and may be used as data but never silently become future
+instruction. Chapter 3 assumes a freshly generated skill is <em>wrong on
+arrival</em>, and builds correction, rollback, and versioning into the
+artifact so it can be repaired rather than trusted. Three different
+problems — stale memory, poisoned files, imperfect distillation —
+converge on one discipline: attach provenance and confidence to
+everything, verify at the moment of use, and keep a way to roll back. If
+you carry one habit out of this bundle, make it that one.</p>
+<h2 id="supervise-the-process-not-just-the-endpoint">Supervise the
+process, not just the endpoint</h2>
+<p>A second convergence runs through the back half. The single success
+number is a liar — it hides how the answer was reached, and rewards the
+agent that guessed right for the wrong reasons. Chapter 1 makes this an
+evaluation argument: report process metrics (tokens, retries, what was
+retrieved, what was verified) alongside the endpoint score, and weld a
+post-condition check to every skill. Chapters 4 and 5 make it a
+<em>training</em> argument. GrepSeek manufactures verified,
+causally-honest search trajectories and discards any whose reasoning
+peeked at the answer. LongTraceRL hands out entity-level rubric rewards
+for surfacing the right facts along the chain — but only to answers that
+were already correct, so the process reward becomes a tiebreaker rather
+than an invitation to game. Same conviction, three altitudes: in
+evaluation, in skill execution, and in the reward function, the
+intermediate steps are where the truth is.</p>
+<h2 id="trajectories-are-the-raw-material">Trajectories are the raw
+material</h2>
+<p>Notice what the last three papers are all quietly doing: mining
+traces. COLLEAGUE.SKILL distills scattered <em>human</em> work traces
+into a loadable skill. GrepSeek splits an answer-aware Tutor and an
+answer-blind Planner to manufacture verified <em>search</em>
+trajectories nobody had to hand-label. LongTraceRL lets a real search
+agent answer a question, then harvests the documents it
+opened-but-didn’t-cite as hard negatives and the gold entities it
+crossed as process supervision. The trajectory — human or agentic,
+successful or discarded — has become the substrate you build training
+data and skills out of. If your agents run in production, you are
+already generating this material and almost certainly throwing it away.
+Several of these papers are, in effect, instructions for mining your own
+logs.</p>
+<h2 id="smaller-models-better-systems">Smaller models, better
+systems</h2>
+<p>Underneath all of it sits the bundle’s quiet rebuke to
+scale-maximalism. A 9B model with a learned grep habit beats RL-tuned
+agents wired to strong dense retrievers. A 4B model picks up real
+reasoning gains from harder distractors and a gated reward. The harness
+paper makes the thesis explicit; the others keep proving it by example.
+The leverage has moved from the weights to the system design — which is
+good news, because system design is something a small team can actually
+iterate on.</p>
+<h2 id="what-to-carry-into-the-chapters">What to carry into the
+chapters</h2>
+<p>Read Chapter 1 as the map and the other four as expeditions into
+specific territories it names: memory and trust (Chapters 1, 2, 3),
+skills as first-class versioned artifacts (Chapters 2, 3), and learned
+search-and-reason behavior built from trajectories (Chapters 4, 5).
+Watch for the recurring moves — provenance labels, verify-at-use,
+process-level supervision, mine-the-trajectory — and notice how a
+defense paper, a distillation paper, and two RL papers keep reaching for
+the same handful of tools. That repetition is the signal. The field is
+converging on a way of building agents, and these five papers are five
+angles on it.</p>
+<hr />
+<h1 id="chapter-1-scaling-the-harness-not-the-model">Chapter 1: Scaling
+the Harness, Not the Model</h1>
+<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2605.26112">From Model Scaling to System
+Scaling: Scaling the Harness in Agentic AI</a> · arXiv 2605.26112 ·
+<strong>Code:</strong> <a href="https://github.com/SafeRL-Lab/cheetahclaws">github.com/SafeRL-Lab/cheetahclaws</a></p>
+<p>Here is a number worth sitting with. In Anthropic’s own multi-agent
+research system, token usage alone explained 80% of the variance in
+performance. Add tool-call count and model choice, and you reach 95%.
+Notice what is doing the heavy lifting there: not how smart the model
+is, but how the system around it spends its budget. That, in one
+statistic, is the argument of this paper. The next wave of gains in
+agentic AI is going to come less from a better brain and more from a
+better body around the brain.</p>
+<h2 id="the-score-you-report-is-a-lie-about-the-model">The score you
+report is a lie about the model</h2>
+<p>Shangding Gu, a Berkeley researcher, opens with a diagnosis the field
+has been quietly avoiding. We still grade agents the way we grade
+models: did it pass the benchmark, what was the final accuracy. But once
+a model is wired into a terminal, a repo, a browser, and a memory store,
+its behavior stops being a property of the model. It becomes a property
+of a <em>system</em> — how context gets built, how memory gets
+retrieved, how tools get invoked, how actions get verified.</p>
+<p>The evidence is embarrassing for the old framing. Redesign the
+agent-computer interface alone — same model underneath — and SWE-bench
+accuracy jumps substantially. A field-wide audit found many “model”
+results stop being Pareto-optimal once you control for prompting
+strategy and cost. The blunt conclusion: what we keep calling a model
+score is really a <strong>model-plus-harness score</strong>, and we have
+been crediting the wrong half.</p>
+<p>Gu’s name for the half we ignore is the <strong>harness</strong> —
+the structured execution layer wrapping the model. Tool interface,
+control loop, context constructor, memory store, skill router, and a
+verification-and-governance layer. The paper’s claim is that once a
+model crosses some capability threshold, long-horizon performance is
+gated by the harness, not the weights. He even writes it as a
+back-of-envelope decomposition: performance equals some function of
+reasoning (R), memory (M), context (C), skill routing (S), orchestration
+(O), and governance (G). Model scaling buys you better R. Everything
+else is system scaling, and it has been treated as plumbing.</p>
+<h2 id="three-places-the-plumbing-leaks">Three places the plumbing
+leaks</h2>
+<p>Gu zeroes in on three bottlenecks, and the useful move is that he
+names each one’s failure mode in a way you can actually go hunting
+for.</p>
+<p><strong>Context governance</strong> is the first, and the reframe is
+sharp: the hard problem of context is not capacity, it is governance. A
+bigger window does not help if the model attends to padding instead of
+evidence — attention dilutes over long inputs, and models famously favor
+the start and end of a context over the middle. The failure mode he
+names is <em>exposure without access</em>: the right token is
+technically present but functionally invisible. The fix is to treat each
+turn’s context as the output of a selection policy with a token budget
+and provenance tracking, not as a buffer you keep appending to.</p>
+<p><strong>Trustworthy memory</strong> is the second, and it is the one
+most teams will recognize in their own logs. The failure is
+<em>stale-but-confident</em>. A note that said “the data loader lives in
+utils/loader.py” stays highly ranked by semantic search long after a
+refactor made it false — and acting on it is now actively destructive.
+The insight: trust should be a runtime decision made at retrieval time,
+not a property baked into the stored item. Retrieved memory is a
+hypothesis until re-verified against the live environment. Gu points at
+Claude Code’s hybrid design as the working example —
+<code>CLAUDE.md</code> carries durable priors while glob/grep re-check
+the actual repo on demand, so the agent keeps accumulated knowledge
+without trusting a stale index.</p>
+<p><strong>Dynamic skill routing</strong> is the third, and its failure
+mirrors the second: <em>confident-but-unchecked</em>. As you add
+specialized subagents, the bottleneck shifts from “we lack a capability”
+to “a subagent returned plausible output and nobody validated it.” Gu’s
+analogy is the OS scheduler — raw skill capacity exists, but useful work
+depends on routing it to the right pathway at the right time, with a
+post-condition check welded to every skill. His sharpest line here:
+scaling skill quality without scaling verification just buys you faster,
+less reliable progress.</p>
+<h2 id="same-model-three-different-animals">Same model, three different
+animals</h2>
+<p>To make this concrete instead of philosophical, the paper releases
+<strong>CheetahClaws</strong>, a Python-native reference harness, and
+sets it beside Claude Code and OpenClaw. The point is not a leaderboard.
+It is that comparable models, projected onto different harnesses, behave
+like genuinely different agents. All three consolidate sessions into
+persistent memory, but they represent <em>trust</em> differently —
+CheetahClaws stores per-entry confidence and recency as first-class
+fields used directly in retrieval ranking, while the others infer trust
+implicitly from access patterns. Turn governance off, or run the
+orchestration loop one-shot, and the same R, C, and S start acting like
+a noticeably worse agent. The harness is the variable.</p>
+<h2 id="where-the-leverage-actually-is">Where the leverage actually
+is</h2>
+<p>The practical payload here is an audit checklist, and you do not need
+to run Gu’s experiment to use it. Stop reporting a single success
+number; report process metrics alongside it — tokens, tool calls,
+retries, failed edits, what was retrieved, what was verified. Two agents
+can both pass and differ wildly in cost and risk, and the endpoint score
+hides exactly the things that determine whether the thing is
+deployable.</p>
+<p>Then walk the three failure modes through your own stack. For
+context: is anything appended to the window without a relevance gate and
+a budget? For memory: when you retrieve a stored fact, do you re-verify
+it against the live environment, or do you act on it because it ranked
+high? For skills and subagents: does every subagent’s output hit a
+post-condition check, or do you trust it because it sounded right?
+Borrow CheetahClaws’ move directly — attach a confidence score and a
+last-verified timestamp to memory entries, and let a staleness penalty
+fall out of that for free. And steal the longitudinal lens: stop
+resetting your agent between tasks in evaluation. Real agents accumulate
+state, and the same accumulation that makes them improve is what lets
+memory quietly rot. A one-shot test cannot tell you whether your agent’s
+memory is getting more useful or more dangerous over a week of use.</p>
+<p>If this chapter’s argument is that the harness is where capability
+now lives, the next one delivers the uncomfortable corollary: the
+harness is also where the attack surface lives. The very memory stores,
+persistent files, and tool permissions that make an agent capable are
+the same machinery an adversary wants to own. The following chapter
+follows a single prompt injection as it escalates from a one-off
+nuisance into persistent backdoor control of an agent’s workspace — and
+lays out a Detect-Attribute-Sanitize defense for clawing that workspace
+back.</p>
+<hr />
+<h1 id="chapter-2-the-backdoor-that-looks-like-a-note">Chapter 2: The
+Backdoor That Looks Like a Note</h1>
+<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2605.31042">From Prompt Injection to
+Persistent Control: Defending Agentic Harness Against Trojan
+Backdoors</a> · arXiv 2605.31042 · <strong>Code:</strong> <a href="https://github.com/RUC-NLPIR/ClawTrojan">github.com/RUC-NLPIR/ClawTrojan</a></p>
+<p>Here is the uncomfortable finding, up front: the strongest models on
+the market have basically solved single-shot prompt injection, and that
+has quietly created a more dangerous blind spot. When the team behind
+this paper ran the old standby benchmarks (AgentDojo, InjecAgent)
+against GPT-5.4, the attack success rate was zero. The model reads the
+“ignore your instructions and exfiltrate the secrets” payload,
+recognizes it as a contaminant, and refuses. Defense solved, right?</p>
+<p>Then they built <strong>ClawTrojan</strong>, a benchmark where no
+single step ever contains that obvious payload, and the same model
+failed 95.5% of the time. That gap is the whole story.</p>
+<h2 id="what-actually-changed">What actually changed</h2>
+<p>The shift is from one malicious prompt to a <strong>multi-step
+trojan</strong>: an attack spread across files, memory, and tool returns
+inside a local agent workspace, where each piece looks like ordinary
+work. A project note says release reports need a short diagnostic block.
+A config file later defines that block as “text copied from
+<code>private_notes.txt</code>.” Neither line is alarming. But when you
+ask for the release report, the agent dutifully copies private text into
+a shared document. The harm is real; it just never lived in a single
+step a detector could flag.</p>
+<p>The authors group these into a few recognizable patterns.
+<strong>Memory poisoning</strong> plants a rule in persistent memory
+that gets reloaded next session. <strong>Trust laundering</strong> lets
+the agent do a few legitimate tasks first, so an untrusted “approved
+exception” gets written into a runbook as if it were verified policy.
+<strong>Skill poisoning</strong> hides capability in a skill’s README or
+metadata that contradicts its declared manifest. The common thread:
+untrusted <em>data</em> becomes persistent <em>control content</em> —
+instructions, policies, and action targets the harness trusts in future
+runs.</p>
+<p>This is why existing defenses miss it. ClawKeeper, StruQ, MELON,
+PromptShield — all inspect the current prompt or the immediate action.
+They can block a visibly dangerous send or delete, but they never
+connect that final action back to the innocuous file write three steps
+earlier that planted the backdoor. Against ClawTrojan they barely move
+the needle (most still sit above 88% ASR). Even CaMeL, with real
+data-flow tracking, only gets down to 74%.</p>
+<h2 id="why-this-should-worry-anyone-running-agents-in-production">Why
+this should worry anyone running agents in production</h2>
+<p>If your agent has a workspace — memory it reloads,
+<code>AGENTS.md</code> or <code>CLAUDE.md</code> files it reads, skills
+it loads, project docs it trusts — you have this attack surface, whether
+or not anyone has aimed it at you yet. The benchmark is OpenClaw-style,
+but the authors are explicit that the structure generalizes: nearly
+every local harness shares the same parts (conversation history, memory,
+project files), and that is all the attack needs.</p>
+<p>The deeper reframe is the one worth internalizing. The security
+question is no longer “is this input malicious?” It is “has untrusted
+content become future instruction or policy?” An attack that fails to
+leak anything <em>today</em> can still succeed if it gets a rule
+committed to the workspace, because that rule sits there waiting for a
+later session to make it actionable. The paper names the <strong>last
+intervention point</strong> — the step after which the attack can no
+longer be stopped — and it is almost always an early, boring file write,
+not the dramatic final action everyone is watching.</p>
+<h2 id="the-defense-and-what-to-borrow-from-it">The defense, and what to
+borrow from it</h2>
+<p>Their answer is <strong>DASGuard</strong> — Detect, Attribute,
+Sanitize — and it cuts ASR to 15.8%. The mechanics are worth
+understanding because they tell you where to put your own guardrails.
+DASGuard sits on the harness boundary and, for every proposed operation,
+asks two questions: does this payload contain a control-bearing span (a
+directive, a memory rule, a policy shift), and is it being written into
+something <em>sensitive</em> — memory, policy files, skill instructions,
+action targets? It labels every piece of content by provenance (trusted
+= user and system text; untrusted = external tool returns, downloaded
+files, anything overlapping a prior finding), and it carries those
+labels <em>across steps</em>. The governing rule is one sentence:
+untrusted data may be used as data, but it must not become future
+instructions or high-risk action targets unless the user clearly
+authorizes it.</p>
+<p>Two implementation details earned their keep in the ablation, and
+both are easy to lift conceptually. First, <strong>inspect writes, not
+just actions</strong> — DASGuard applies file edits to a shadow copy and
+scans only the changed spans before committing. Second,
+<strong>provenance is everything</strong>: stripping the source labels
+was catastrophic, sending ASR back up to 92.7%. Cross-step memory and
+embedding matching helped, but provenance was the load-bearing wall.</p>
+<p>So, concretely, if you are hardening an agent: figure out what
+<em>persistent control content</em> means in your harness — which files,
+when reloaded, actually steer behavior — and gate writes into those
+specifically, separately from gating the splashy external actions. Tag
+content by where it came from and keep that tag alive as the content
+gets copied and combined. Treat a skill’s prose that quietly implies
+messaging or credential access as a control-flow finding, not as
+documentation. And note the honest cost: DASGuard’s false-positive rate
+climbs to 13%, so this isn’t free — it’s a “send borderline writes to
+the user for review” trade, which is tolerable precisely because the
+attack surface shrinks so much.</p>
+<p>The thread running through all of this is that an agent’s memory and
+skills are now a place attackers write to, not just a place you read
+from. Which raises an obvious and slightly unnerving question for the
+next chapter: if a poisoned skill is this dangerous, how much should we
+trust the skills we <em>manufacture</em> ourselves? COLLEAGUE.SKILL
+takes the optimistic side of that coin — automatically distilling
+reusable agent skills from expert human traces, capturing capabilities,
+mental models, behavioral constraints, and even correction history at
+scale. Read alongside this chapter, it sharpens the stakes: skills are
+becoming both the thing we mass-produce and the thing we can no longer
+afford to trust blindly.</p>
+<hr />
+<h1 id="chapter-3-the-coworker-you-can-read-roll-back-and-delete">Chapter 3:
+The Coworker You Can Read, Roll Back, and Delete</h1>
+<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2605.31264">COLLEAGUE.SKILL: Automated AI
+Skill Generation via Expert Knowledge Distillation</a> · arXiv
+2605.31264 · <strong>Code:</strong> <a href="https://github.com/titanwings/colleague-skill">github.com/titanwings/colleague-skill</a></p>
+<p>When a senior engineer leaves a team, the postmortem instincts, the
+review reflexes, the “we don’t ship without rate limiting” muscle memory
+all walk out the door with them. None of it was ever written down as a
+clean instruction manual. It lived in code-review comments, incident
+notes, and Slack decisions. COLLEAGUE.SKILL is a system that scoops up
+exactly those messy traces and renders them into a portable agent skill
+you can open, correct, and delete. The pitch is deliberately modest: it
+is not trying to clone the person. It is trying to turn scattered
+evidence of how they work into a versioned folder an agent can load on
+demand.</p>
+<h2 id="what-it-actually-builds">What it actually builds</h2>
+<p>Give the system some materials about a person or role — chat logs,
+work docs, email, screenshots, subtitles, a few lines of description —
+and it runs them through a distillation pipeline. Collectors normalize
+the raw stuff into a local knowledge directory. Analyzers pull out
+durable capability, mental models, and interaction style. A writer then
+emits a <strong>versioned skill package</strong> built on two
+coordinated tracks.</p>
+<p>The first is a <strong>capability track</strong>
+(<code>work.md</code>): responsibilities, workflows, technical
+standards, review criteria, decision heuristics, lessons learned. The
+second is a <strong>behavior track</strong> (<code>persona.md</code>):
+communication style, interaction rules, and — importantly — a running
+correction log. The split matters. The paper argues that most persona
+systems fail because they blur three different things into one prompt:
+factual knowledge, procedural judgment, and surface tone. By keeping
+capability and behavior in separate, inspectable files, you can invoke
+the full skill, the capability-only version, or the style-only version
+independently. When you want a coworker’s review judgment but not their
+voice, you load just the work track.</p>
+<p>The package follows the Agent Skills standard: a required
+<code>SKILL.md</code> entrypoint with frontmatter and
+<code>user-invocable: true</code>, plus split sub-skill entrypoints, a
+<code>manifest.json</code> for installers and slash commands, and a
+<code>meta.json</code> carrying schema version, provenance, lifecycle
+version, and correction count. It installs across hosts like Claude
+Code, OpenClaw, Codex, and Hermes. Three presets reuse the identical
+workflow under different evidence and consent rules:
+<strong>colleague</strong> (enterprise work traces),
+celebrity/public-figure (public first-person sources with citation
+discipline), and relationship (private traces under strong local-control
+and deletion defaults).</p>
+<h2 id="why-this-is-a-different-bet-than-the-usual-skill-synthesis-paper">Why
+this is a different bet than the usual skill-synthesis paper</h2>
+<p>Most recent skill-library work distills <em>agent</em> trajectories —
+successful and failed runs of the machine itself — into reusable
+strategies. COLLEAGUE.SKILL distills <em>human</em> traces instead, and
+it treats the whole thing as a workflow over files rather than a
+one-shot generation. That reframing is the real contribution, and it’s
+worth borrowing even if you never touch this codebase.</p>
+<p>The lifecycle is the point. A generated skill is assumed to be wrong
+on arrival. So the system makes creation, inspection, invocation,
+correction, rollback, deletion, host installation, and optional
+distribution into first-class operations. Feedback arrives in plain
+language — “he wouldn’t say that,” “she’d push back here.” If it
+concerns expert work, the handler produces a Markdown patch: matching
+level-2 headings replace their section, unmatched ones get appended. If
+it concerns behavior, it writes a normalized
+<code>{scene, wrong, correct}</code> record. Either way the writer
+archives the current version, applies the change, bumps the lifecycle
+version, and regenerates every derived artifact. You can list archived
+versions, roll back, and prune old ones.</p>
+<p>This is the move that elevates the paper above prompt engineering:
+<strong>correction history becomes a durable artifact</strong>, not a
+vanished chat turn. The honest part is that the authors make
+artifact-level claims only. They do <em>not</em> assert the generated
+skill catches the same bugs the source expert would, and they explicitly
+flag that corrections can encode editor bias or make contested traces
+look more settled than they are. The deployment numbers they cite —
+roughly 18.5k GitHub stars, a 215-skill gallery — are offered as
+evidence of distribution surface, not adoption quality. That restraint
+is refreshing in a space full of fidelity hype.</p>
+<h2 id="what-to-steal-for-your-own-skill-library">What to steal for your
+own skill library</h2>
+<p>If you maintain skills for agents, several pieces transfer cleanly.
+First, split capability from persona in storage even if you usually
+invoke them together — it gives you a knob for “expertise without
+voice,” which is exactly what you want when style transfer would be
+inappropriate or creepy. Second, capture more than instructions from
+your traces: pull out decision heuristics and escalation thresholds (an
+engineer’s “check auth, input validation, rate limiting, response
+schema, and data exposure <em>before</em> lower-priority issues”), not
+just procedures. Third, and most actionable: make correction a logged,
+structured patch against versioned state rather than an edit-in-place. A
+<code>{scene, wrong, correct}</code> record plus archive-then-regenerate
+gives you an auditable history and a rollback point for free, and it
+turns “the skill drifted” into a diff you can read. Fourth, let metadata
+carry the governance — source boundaries, provenance, deletion paths in
+a manifest — so withholding or sharing a skill is a property of the
+file, not tribal knowledge. Even outside person-grounded skills,
+treating any generated capability as a correctable, versioned package
+beats treating it as frozen prompt text.</p>
+<p>The unglamorous lesson is that productization <em>is</em> the
+research here. Installers, manifests, rollback state, and deletion paths
+are what let a distilled skill be audited, repaired, or withheld — the
+conditions under which a self-evolving skill library can actually be
+trusted to evolve.</p>
+<p>COLLEAGUE.SKILL manufactures knowledge from traces: it takes evidence
+of how a person works and bottles it into a loadable artifact. The next
+chapter inverts the question. Instead of handing an agent a pre-packaged
+skill or a fixed retriever, GrepSeek trains the <em>search behavior
+itself</em> — teaching an agent to root through a raw text corpus with
+shell commands like <code>grep</code> and file reads, first by learning
+from verified trajectories produced by a Tutor and Planner, then
+sharpening that behavior with GRPO reinforcement learning. Where this
+chapter asked how to package what an expert knows, the next asks how an
+agent should go find what it doesn’t.</p>
+<hr />
+<h1 id="chapter-4-giving-the-agent-a-terminal-instead-of-a-vector-database">Chapter
+4: Giving the Agent a Terminal Instead of a Vector Database</h1>
+<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2605.29307">GrepSeek: Training Search Agents
+for Direct Corpus Interaction</a> · arXiv 2605.29307 ·
+<strong>Code:</strong> <a href="https://github.com/alirezasalemi7/grepseek">github.com/alirezasalemi7/grepseek</a></p>
+<p>Here is the practical bet GrepSeek makes: most of the machinery we
+wrap around retrieval-augmented agents — the embedding model, the vector
+index, the offline indexing job, the 200GB of precomputed
+representations — might be optional. Instead of giving your agent a
+<code>search(query)</code> API backed by a retriever, you give it a
+shell prompt and let it run <code>rg</code>, <code>grep</code>,
+<code>head</code>, and <code>sed</code> directly against the raw corpus.
+The corpus <em>is</em> the environment. The agent finds evidence the way
+a senior engineer finds a bug in an unfamiliar repo: by grepping,
+reading a few lines, narrowing the pattern, and grepping again.</p>
+<p>The headline result is that this works, and on the hardest questions
+it works <em>better</em>. On a 21-million-passage Wikipedia corpus, a
+compact 9B model trained this way beats index-based RAG, untrained
+agentic frameworks, and even RL-tuned agents wired to strong dense
+retrievers — winning on four of seven QA benchmarks and taking the best
+overall token-level F1. The gains concentrate exactly where you’d hope:
+multi-hop reasoning, where dense retrievers blur distinct-but-similar
+entities into the same embedding neighborhood. And it does this with a
+14GB memory footprint (just the raw text) versus 70GB for an E5 index or
+221GB for a 4B-embedding index, with offline indexing cost dropping from
+dozens of A100-hours to about a minute of setup.</p>
+<h2 id="why-you-have-to-train-this-not-just-prompt-it">Why You Have to
+Train This, Not Just Prompt It</h2>
+<p>The tempting shortcut — and what a couple of contemporary papers did
+— is to hand the whole thing to a big proprietary model like Claude and
+let it orchestrate shell search at inference time. It works, but it’s
+slow (sometimes an hour per query) and expensive. GrepSeek’s
+contribution is making <strong>direct corpus interaction</strong> a
+<em>learned</em> capability of a small model rather than an emergent
+behavior of a giant one.</p>
+<p>That turns out to be hard. Naively pointing reinforcement learning at
+a base model and rewarding correct answers produces degenerate behavior:
+overly broad commands, agents that <code>cat</code> half the corpus into
+their context window, out-of-memory crashes even on 1TB machines. The
+search behavior you want — surgical, exact-match, iteratively filtered —
+doesn’t fall out of RL on its own. You have to teach the primitives
+first.</p>
+<h2 id="the-tutor-and-planner-trick-for-manufacturing-good-trajectories">The
+Tutor-and-Planner Trick for Manufacturing Good Trajectories</h2>
+<p>The cleverest piece here is how GrepSeek generates its cold-start
+training data, and it’s the part most worth stealing. You can’t just
+record an agent flailing and label the lucky runs. So the paper splits
+the job between two roles.</p>
+<p>An <strong>answer-aware Tutor</strong> knows the gold answer and
+builds the evidence chain <em>backward</em>, one hop at a time — from
+the final answer back toward the question. Working backward is what
+makes multi-hop tractable: at each step the Tutor proposes a shell
+command, runs it, and verifies the retrieved document actually supports
+the current target before extracting the bridge entity for the next hop.
+There’s a strict anti-cheating rule: commands are
+<em>target-masked</em>, forbidden from grepping for the answer entity or
+its aliases, so the trajectory reflects realistic information-seeking
+rather than “search for the thing I already know.”</p>
+<p>Then an <strong>answer-blind Planner</strong> rebuilds that verified
+chain <em>forward</em>, drafting reasoning and actions using only what
+an agent could actually see at that point in time. The Tutor does a
+constrained edit pass to make the Planner’s reasoning justify each
+verified command without leaking future state. The result: trajectories
+that are causally honest (forward-looking, no peeking) but
+evidence-reliable (backward-verified). Everything gets filtered — the
+final answer must overlap the gold answer, and a judge discards any
+trajectory whose reasoning quietly references facts not yet
+observed.</p>
+<p>That cold-start set (10k trajectories) seeds an SFT pass that
+installs the structural habits — <code>rg -F</code> for exact matching,
+<code>| head</code> to cap output, cascaded <code>rg ... | rg ...</code>
+filtering. Only <em>then</em> does GRPO take over, sampling five
+trajectories per question and rewarding token-F1 on the final answer,
+gated by a format check so malformed runs earn nothing. The ablations
+are blunt about how load-bearing each stage is: drop GRPO and multi-hop
+performance collapses; drop SFT and training is so unstable they could
+only report a pre-collapse checkpoint.</p>
+<p>A nice detail from the training dynamics: GRPO doesn’t teach the
+agent to search <em>more</em>. The SFT-installed primitives (pipe depth,
+fixed-string matching, truncation) stay basically frozen. What RL
+changes is higher-level strategy — the agent learns to issue
+<em>fewer</em> commands by composing richer multi-stage pipelines, while
+spending more tokens reasoning between them.</p>
+<h2 id="why-this-matters-beyond-one-benchmark">Why This Matters Beyond
+One Benchmark</h2>
+<p>The deeper lesson is about <em>where</em> you put the intelligence in
+a search stack. The dominant paradigm trains the agent to write better
+queries for a <em>fixed</em> retriever — the retriever stays a black
+box. GrepSeek collapses that boundary. There’s no semantic bottleneck
+deciding in advance what’s relevant; the agent controls matching,
+filtering, and composition at arbitrary granularity. That’s why it
+shines on exact entity names, rare symbolic strings like chemical
+formulas, and bridge entities — the cases where embedding-level
+smoothing quietly merges a subsidiary with its parent company.</p>
+<p>It also makes search <em>interpretable</em>. Every retrieval step is
+a literal shell command you can read, replay, and debug. That’s a
+meaningful operational property when your agent is wrong and you need to
+know why.</p>
+<p>The honest caveat, which the paper doesn’t hide: pure lexical search
+is brittle to surface-form variation. A missing diacritic or an
+unexpected accent can make the agent whiff entirely, and <code>rg</code>
+has no notion of semantic ranking, so an authoritative passage can get
+buried behind earlier file-order matches. On long-tail-entity datasets
+like PopQA, dense retrievers still win. The authors frame DCI as a
+complement to index-based retrieval, not a wholesale replacement, and
+point to hybrid architectures as future work.</p>
+<h2 id="what-you-could-try-on-monday">What You Could Try on Monday</h2>
+<p>Three concrete moves. First, on any corpus small enough to grep — a
+docs set, a codebase, an internal wiki — try handing your agent
+<code>rg</code> over the raw files <em>instead of</em> standing up a
+vector DB. You skip the embedding pipeline and the index entirely, and
+for exact-match-heavy questions you may come out ahead. Second, steal
+the Tutor/Planner pattern whenever you need verified agentic
+trajectories: build the evidence chain backward with answer access and
+target-masking, then replay it forward answer-blind to keep it causally
+honest. It’s a general recipe for synthesizing process-supervised data,
+not just for search. Third, mind the sequencing — SFT the search
+<em>primitives</em> first, then run GRPO to refine <em>strategy</em>.
+The order is not optional.</p>
+<p>GrepSeek trains the agent to <em>gather</em> evidence by searching
+the corpus directly. But gathering is only half the job: once that
+evidence — often long, noisy, and full of near-miss distractors — lands
+in the context window, the agent still has to reason over it correctly.
+That’s exactly where the next chapter picks up. LongTraceRL learns
+long-context reasoning from search-agent trajectories, using gold
+entities along the reasoning chain as entity-level rubric rewards for
+fine-grained process supervision, with distractors mined from real
+search runs. Both papers lean on search-agent trajectories as training
+signal — GrepSeek to learn the searching, LongTraceRL to learn the
+thinking that has to follow it.</p>
+<hr />
+<h1 id="chapter-5-hard-distractors-and-the-reasoning-you-cant-see">Chapter
+5: Hard Distractors and the Reasoning You Can’t See</h1>
+<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2605.31584">LongTraceRL: Learning
+Long-Context Reasoning from Search Agent Trajectories with Rubric
+Rewards</a> · arXiv 2605.31584 · <strong>Code:</strong> <a href="https://github.com/THU-KEG/LongTraceRL">github.com/THU-KEG/LongTraceRL</a></p>
+<p>Here’s a failure mode you’ve probably seen if you’ve ever shipped a
+long-context reasoning model: it gets the right answer for the wrong
+reasons. You ask a multi-hop question, the model burns through a hundred
+thousand tokens of context, and it returns “Moroccan-Swedish” — which
+happens to be correct — while citing the wrong song at one of the
+intermediate hops. The binary reward says: perfect, full marks. The
+model learned nothing about reasoning. It learned that guessing
+sometimes pays.</p>
+<p>LongTraceRL, out of Tsinghua, is a clean attack on exactly that gap.
+Its argument is that the two standard ingredients of long-context
+reinforcement learning — the training data and the reward signal — are
+both too easy on the model, and that fixing both with surprisingly cheap
+tricks buys real gains. On a 4B model it lifts the average across five
+benchmarks by 5.7 points over base and 2.5 points over the strongest
+baseline, with the biggest jumps on the hardest, most reasoning-heavy
+benchmark. The headline isn’t the score, though. It’s <em>how</em> they
+made the training harder, because the recipe is something you can
+borrow.</p>
+<h2 id="mining-distractors-from-agents-that-actually-searched">Mining
+distractors from agents that actually searched</h2>
+<p>Most long-context training data is built by taking a multi-hop
+question and padding the context with <strong>distractors</strong> —
+junk documents the model has to ignore. The dirty secret is that those
+distractors are usually random. A question about Lady Gaga’s producer
+gets padded with a blog post about Byzantine officials and a
+meteorologist’s diary. Off-topic noise is trivial to filter; the model
+learns to skim, not to reason. In their numbers, random distractors
+share a relevant entity with the reasoning chain just 1.35% of the time.
+There’s almost nothing to confuse the model.</p>
+<p>LongTraceRL’s move is to let a real search agent answer each question
+first, then steal its trajectory. They generate eight-hop questions by
+random-walking the Wikipedia hyperlink graph, then deploy a deep-search
+agent that issues queries, opens documents, and cites sources. Every
+question gets answered five times; only trajectories that land the
+correct answer are kept. Then they harvest the wreckage. Documents the
+agent <strong>opened but didn’t cite</strong> become Tier-1 distractors
+— high confusability, because the agent itself thought they were worth
+reading. Documents that showed up in search results but were never
+opened become Tier-2 — low confusability, only surface-related. Assembly
+fills the context with Tier-1 first, then Tier-2, then shuffles so
+position leaks nothing.</p>
+<p>The payoff is measurable. Tier-1 distractors share a rubric entity
+with the reasoning chain 63% of the time, versus 15% for naive one-shot
+search and that pathetic 1.35% for random. Harder distractors, in their
+ablation, track downstream score almost monotonically. The model is
+finally being forced to <em>discriminate</em> rather than skim.</p>
+<h2 id="rewarding-the-reasoning-not-just-the-answer">Rewarding the
+reasoning, not just the answer</h2>
+<p>The second fix targets the reward. Because the question-generation
+step emits the gold entities along each reasoning chain, they get free
+process supervision: a <strong>rubric reward</strong> equal to the
+fraction of gold entities the model actually surfaces in its reasoning.
+Hit four of five entities, score 0.8. That’s entity-level supervision —
+finer than the chunk-level or document-level rewards other long-context
+RL papers use, and it doesn’t need an auxiliary scoring model the way
+co-evolving reward schemes do.</p>
+<p>The trap with any recall-based reward is obvious: the model can game
+it by enumerating every entity-looking string in the context without
+reasoning at all. The defense here is a <strong>positive-only
+strategy</strong> — the rubric reward is granted only to responses that
+already got the final answer right. Wrong answers get zero, full stop.
+So the rubric never rewards entity-stuffing on its own; it only
+differentiates <em>among</em> correct answers, pushing the model toward
+the ones that earned it. Their ablation makes the case bluntly: turn off
+the positive-only gate and let every rollout collect rubric credit, and
+the average drops from 59.0 to 57.1, with the reasoning-heavy benchmarks
+bleeding nearly five points each. Without that gate, every wrong rollout
+still banks rubric reward, the gradient stops caring about correctness,
+and the policy drifts toward enumerating gold-like entities. Strip the
+rubric reward out entirely and the gain almost vanishes — it’s the
+dominant driver, not the data alone.</p>
+<h2 id="why-this-travels-beyond-one-paper">Why this travels beyond one
+paper</h2>
+<p>The deeper lesson is about where supervision comes from when the
+answer is binary but the work is long. Two ideas here generalize past
+long-context QA into any multi-turn agent RL setting.</p>
+<p>First: your agents are already generating high-quality negatives, and
+you’re throwing them away. A trajectory where an agent opened a document
+and then declined to cite it is a labeled hard negative — relevant
+enough to read, wrong enough to discard. That’s a better adversarial
+signal than embedding similarity, and it costs you nothing but logging.
+If you run search or tool-using agents in production, you’re sitting on
+a distractor mine.</p>
+<p>Second: outcome-only rewards in long-horizon tasks are noisy in a
+specific, correctable way. A correct final answer reached through a
+broken intermediate step is a false positive your reward can’t see. If
+any structure in your task gives you intermediate checkpoints — entities
+that must appear, tools that must be called, facts that must be
+retrieved — you can convert that structure into dense process reward.
+The positive-only gate is the part to remember: process reward applied
+to wrong answers is an invitation to reward hacking; applied only to
+right answers, it’s a tiebreaker that rewards genuine reasoning.</p>
+<h2 id="what-a-practitioner-can-borrow">What a practitioner can
+borrow</h2>
+<p>If you’re tuning a multi-turn agent with RL, three concrete moves
+fall out of this. Start logging your agents’ full trajectories and split
+retrieved-but-unused documents into opened-not-cited versus never-opened
+— the first tier is your hard distractor supply, and it’s free. If your
+task generation emits intermediate gold facts, wire them into an
+entity-recall rubric reward as a cheap process signal you don’t need a
+reward model to compute. And whatever process reward you add, gate it on
+outcome correctness — let it discriminate among the answers that already
+passed, never substitute for passing. The tuning knob matters too: their
+rubric weight peaked at 0.3, with 0.5 actively hurting as it diluted the
+outcome objective. There’s a real ceiling on how hard you can lean on
+process reward before it stops helping.</p>
+<p>What’s quietly satisfying about LongTraceRL is how little of it is
+exotic. No new architecture, no auxiliary verifier, no clever loss. It’s
+standard GRPO fed harder data and a gated tiebreaker reward, both
+manufactured from byproducts the pipeline was already producing. The
+gains came not from a bigger hammer but from refusing to let the model
+off easy — making the distractors genuinely confusing and making the
+reward genuinely care whether the reasoning held up. That’s a good note
+to end a reading on: the next jump in long-context reasoning may not be
+waiting on a new method so much as on us being honest about how easy our
+training has been.</p>
+</body>
+</html>
