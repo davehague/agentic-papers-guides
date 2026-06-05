@@ -10,6 +10,10 @@ Generated with the `papers-to-content` skill. All content is summaries of public
 
 | Digest | Papers | Read | PDF |
 |--------|--------|------|-----|
+| 5 June 2026 — *Benchmarks Aren't Enough* | K-BrowseComp · MCP-Persona · AdaPlanBench · RAMP · TELBench/DRIFT | [HTML](https://davehague.github.io/agentic-papers-guides/2026-06-05-evaluation/) | [PDF](2026-06-05-evaluation/guide.pdf) |
+| 5 June 2026 — *The Wiring Is the Model* | MACU · Multi-Agent RL · StreamMA | [HTML](https://davehague.github.io/agentic-papers-guides/2026-06-05-multi-agent/) | [PDF](2026-06-05-multi-agent/guide.pdf) |
+| 5 June 2026 — *Every Self-Improvement Loop Has a Judge* | Adaptive Auto-Harness · MASA · SCOPE · CHERRL | [HTML](https://davehague.github.io/agentic-papers-guides/2026-06-05-self-improvement/) | [PDF](2026-06-05-self-improvement/guide.pdf) |
+| 5 June 2026 — *The Gains Are in the Restraint* | SAAS · Masking Stale Observations · OCC-RAG | [HTML](https://davehague.github.io/agentic-papers-guides/2026-06-05-retrieval/) | [PDF](2026-06-05-retrieval/guide.pdf) |
 | 2 June 2026 | Harness-1 · Harness Updating Is Not Harness Benefit · Crafter · SkillAdaptor · A Matter of TASTE | [HTML](https://davehague.github.io/agentic-papers-guides/2026-06-02/) | [PDF](2026-06-02/guide.pdf) |
 | 1 June 2026 | Model→System Scaling · Prompt Injection→Persistent Control · COLLEAGUE.SKILL · GrepSeek · LongTraceRL | [HTML](https://davehague.github.io/agentic-papers-guides/2026-06-01/) | [PDF](2026-06-01/guide.pdf) |
 | 30 May 2026 | M-DARE · LiteCoder-Terminal · WorldMemArena · PhoneWorld · PANDO | [HTML](https://davehague.github.io/agentic-papers-guides/2026-05-30/) | [PDF](2026-05-30/guide.pdf) |
