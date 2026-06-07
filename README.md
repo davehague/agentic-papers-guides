@@ -10,6 +10,7 @@ Generated with the `papers-to-content` skill. All content is summaries of public
 
 | Digest | Papers | Read | PDF |
 |--------|--------|------|-----|
+| 7 June 2026 — *The Long Game* | LongDS-Bench · AutoLab · OpenWebRL · Continual Experience Internalization · JAMEL | [HTML](https://davehague.github.io/agentic-papers-guides/2026-06-07/) | [PDF](2026-06-07/guide.pdf) |
 | 5 June 2026 — *Benchmarks Aren't Enough* | K-BrowseComp · MCP-Persona · AdaPlanBench · RAMP · TELBench/DRIFT | [HTML](https://davehague.github.io/agentic-papers-guides/2026-06-05-evaluation/) | [PDF](2026-06-05-evaluation/guide.pdf) |
 | 5 June 2026 — *The Wiring Is the Model* | MACU · Multi-Agent RL · StreamMA | [HTML](https://davehague.github.io/agentic-papers-guides/2026-06-05-multi-agent/) | [PDF](2026-06-05-multi-agent/guide.pdf) |
 | 5 June 2026 — *Every Self-Improvement Loop Has a Judge* | Adaptive Auto-Harness · MASA · SCOPE · CHERRL | [HTML](https://davehague.github.io/agentic-papers-guides/2026-06-05-self-improvement/) | [PDF](2026-06-05-self-improvement/guide.pdf) |
